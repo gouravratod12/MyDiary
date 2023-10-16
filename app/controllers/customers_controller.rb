@@ -1,4 +1,7 @@
 class CustomersController < ApplicationController
+
+  before_action :set_customer, only: [:edit, :update , :show , :destroy]
+
   def index
     @customers = Customer.all
   end
@@ -19,22 +22,40 @@ class CustomersController < ApplicationController
   end
 
   def edit
-     @customer = Customer.find(params[:id])
+
   end
 
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customer_params)
-      redirect_to customer_path, notice: 'Customer has been updated succesfully'
+      redirect_to edit_customer_path, notice: 'Customer has been updated succesfully'
     else
       render :edit
+   end
+ end
+
+  def show
+
   end
-end
+
+  def destroy
+
+
+    if @customer.destroy
+      redirect_to customers_path, notice: 'Customer has been deleted succesfully'
+    end
+  end
 
   private
 
   def customer_params
     params.require(:customer).permit(:customer_name, :customer_address,:customer_dateofjoining, :customer_contact)
+  end
+
+  def set_customer
+    @customer = Customer.find(params[:id])
+  rescue ActiveRecord::RecordNotFound => error
+    redirect_to customers_path, notice: error
   end
 
 end

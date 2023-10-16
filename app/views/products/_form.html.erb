@@ -1,0 +1,40 @@
+<%= form_for product do |form| %>
+    <div class="row">
+
+       <% if @product.errors.any? %>
+          <div class="col-lg-12">
+            <p class="lead">Please fix errors below</p>
+          </div>
+      <%end%>
+      <div class="col-lg-4">
+        <div class="form-group">
+           <%= form.label :product_name, class: 'mb-2' %>
+           <%= form.text_field :product_name, class: 'form-control form-control-lg rounded-0' %>
+           <% @product.errors.full_messages_for(:product_name).each do|message| %>
+           <p class="text-danger"><%=message%></p>
+           <%end%>
+        </div>
+      </div>
+   </div>
+     <br>
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+           <%= form.label :product_rate, class: 'mb-2' %>
+           <%= form.text_field :product_rate, class: 'form-control form-control-lg rounded-0' %>
+           <% @product.errors.full_messages_for(:product_rate).each do|message| %>
+           <p class="text-danger"><%=message%></p>
+          <%end%>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+        <%= form.submit class: 'btn btn-primary rounded-0 btn-lg'%>
+        <%= link_to "Back to Customer", products_path, class: "btn btn-outline-primary btn-lg mt-3 mb-3 rounded-0" %>
+
+      </div>
+    </div>
+  </div>
+  <%end%>

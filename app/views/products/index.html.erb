@@ -1,0 +1,42 @@
+<div class="col-lg-12">
+<%= flash[:notice] %>
+<div class="card rounded-0 mt-5">
+  <div class="card-body ">
+    <h2 class="text-center">Listing Products</h2>
+  </div>
+</div>
+<%= link_to "Create New product", new_product_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
+</div>
+<table class="table table-bordered ">
+  <thead >
+    <tr>
+      <th>Product Name</th>
+      <th>Product Rate</th>
+      <th>Actions</th>
+    </tr>
+  <thead>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.product_name%></td>
+
+        <td><%= product.product_rate%></td>
+
+        <td>
+        <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+         </button>
+         <ul class="dropdown-menu">
+          <li><%= link_to "Edit" , edit_product_path(product), class: "dropdown-item"%></li>
+          <li><%= link_to "View" , product_path(product), class: "dropdown-item"%></li>
+          <li><%= link_to "Delete", product_path(product), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this product?' } %></li>
+        </ul>
+       </div>
+
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>

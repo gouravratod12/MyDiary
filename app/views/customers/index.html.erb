@@ -29,7 +29,19 @@
 
         <td><%= customer.customer_contact%></td>
 
-        <td><%= link_to "Edit" , edit_customer_path(customer), class: "btn btn-primary"%></td>
+        <td>
+        <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+         </button>
+         <ul class="dropdown-menu">
+          <li><%= link_to "Edit" , edit_customer_path(customer), class: "dropdown-item"%></li>
+          <li><%= link_to "View" , customer_path(customer), class: "dropdown-item"%></li>
+          <li><%= link_to "Delete", customer_path(customer), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this customer?' } %></li>
+        </ul>
+       </div>
+
+        </td>
       </tr>
     <%end%>
   </tbody>
