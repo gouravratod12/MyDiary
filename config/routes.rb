@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :products
-  reosurces :bill_managers
+  resources :bill_managers
 
 end
