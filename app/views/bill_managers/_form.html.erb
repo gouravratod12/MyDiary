@@ -1,0 +1,27 @@
+<%= form_for bill_manager do |form| %>
+  <div class="row">
+     <div class="col-lg-4">
+           <div class="form-group">
+                <%= form.label :customer_id, class: 'mb-2' %>
+                <%= form.collection_select :customer_id, Customer.all, :id, :customer_name, { prompt: 'Select customer' }, class: 'form-select form-select-lg rounded-0' %>
+                <% if bill_manager.errors.full_messages_for(:customer_id).present? %>
+                  <% bill_manager.errors.full_messages_for(:customer_id).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                  <% end %>
+                <% end %>
+           </div>
+     </div>
+  </div>
+ <br>
+  <div class="row">
+      <div class="col-lg-3">
+        <div class="form-group">
+           <%= form.label :bill_date, class: 'mb-2' %>
+           <%= form.text_field :bill_date, class: 'form-control form-control-lg rounded-0' %>
+           <% @bill_manager.errors.full_messages_for(:bill_date).each do|message| %>
+           <p class="text-danger"><%=message%></p>
+          <%end%>
+        </div>
+      </div>
+    </div>
+<% end %>

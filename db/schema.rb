@@ -13,7 +13,6 @@
 ActiveRecord::Schema.define(version: 20231016073356) do
 
   create_table "bill_managers", force: :cascade do |t|
-    t.string   "bill_no"
     t.date     "bill_date"
     t.integer  "customer_id", null: false
     t.datetime "created_at",  null: false
@@ -33,8 +32,10 @@ ActiveRecord::Schema.define(version: 20231016073356) do
   create_table "products", force: :cascade do |t|
     t.string   "product_name"
     t.integer  "product_rate"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.integer  "bill_manager_id", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["bill_manager_id"], name: "index_products_on_bill_manager_id"
   end
 
 end
