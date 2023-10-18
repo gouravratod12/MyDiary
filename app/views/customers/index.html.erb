@@ -7,7 +7,7 @@
   </div>
 </div>
 <%= link_to "Create New Customer", new_customer_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
-</div>
+
 <table class="table table-bordered ">
   <thead >
     <tr>
@@ -17,7 +17,7 @@
       <th>Contacts</th>
       <th>Actions</th>
     </tr>
-  <thead>
+  </thead>
   <tbody>
     <% @customers.each do |customer| %>
       <tr>

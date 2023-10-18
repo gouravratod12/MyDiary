@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
-  belongs_to :bill_manager
+  has_many :product_bills
 
-  validates :product_name, presence: true
-  validates :product_rate, presence: true
+  validates :product_name, :product_rate, presence: true
+
 end

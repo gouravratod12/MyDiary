@@ -4,6 +4,7 @@ class BillManagersController< ApplicationController
 
   def index
     @bill_managers = BillManager.all
+
   end
 
   def new

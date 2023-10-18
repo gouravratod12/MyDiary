@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20231016073356) do
+ActiveRecord::Schema.define(version: 20231018052002) do
 
   create_table "bill_managers", force: :cascade do |t|
     t.date     "bill_date"
     t.integer  "customer_id", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "quantity"
+    t.integer  "amount"
     t.index ["customer_id"], name: "index_bill_managers_on_customer_id"
   end
 
@@ -29,13 +31,21 @@ ActiveRecord::Schema.define(version: 20231016073356) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "product_bills", force: :cascade do |t|
+    t.date     "product_date"
+    t.integer  "product_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "product_stock"
+    t.string   "product_unit"
+    t.index ["product_id"], name: "index_product_bills_on_product_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string   "product_name"
     t.integer  "product_rate"
-    t.integer  "bill_manager_id", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-    t.index ["bill_manager_id"], name: "index_products_on_bill_manager_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end

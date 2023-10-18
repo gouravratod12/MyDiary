@@ -15,13 +15,59 @@
  <br>
   <div class="row">
       <div class="col-lg-3">
-        <div class="form-group">
+        <div class="form-group mb-2">
            <%= form.label :bill_date, class: 'mb-2' %>
-           <%= form.text_field :bill_date, class: 'form-control form-control-lg rounded-0' %>
+           <%= form.date_field :bill_date, class: 'form-control form-control-lg rounded-0' %>
            <% @bill_manager.errors.full_messages_for(:bill_date).each do|message| %>
            <p class="text-danger"><%=message%></p>
           <%end%>
         </div>
       </div>
     </div>
+
+
+  <div class="row">
+  <div class="col-lg-3">
+  <div class="form-group mb-2 rounded-0">
+    <%= label_tag 'select_option', 'Product', class:'mb-2' %>
+    <%= select_tag 'select_option', options_for_select(['Milk', 'Paneer', 'Butter','Curd','Butter Milk','Mawa'], params[:select_option]), class: 'form-control' %>
+  </div>
+  </div>
+
+
+
+
+ <br>
+   <div class="col-lg-3">
+        <div class="form-group">
+           <%= form.label :quantity, class: 'mb-2' %>
+           <%= form.text_field :quantity, class: 'form-control form-control-lg rounded-0' %>
+           <% @bill_manager.errors.full_messages_for(:quantity).each do|message| %>
+           <p class="text-danger"><%=message%></p>
+           <%end%>
+        </div>
+  </div>
+    <div class="col-lg-3">
+        <div class="form-group">
+           <%= form.label :amount, class: 'mb-2' %>
+           <%= form.text_field :amount, class: 'form-control form-control-lg rounded-0' %>
+           <% @bill_manager.errors.full_messages_for(:amount).each do|message| %>
+           <p class="text-danger"><%=message%></p>
+           <%end%>
+        </div>
+  </div>
+
+  </div>
+
+<br>
+
+  <%= submit_tag 'Add Product +', class: 'btn btn-danger mb-3 rounded-0' %>
+  <br>
+
+  <%= submit_tag 'Submit', class: 'btn btn-primary mb-3 rounded-0' %>
+  <%= submit_tag 'Reset', class: 'btn btn-primary mb-3 rounded-0' %>
+
+
+</div>
+
 <% end %>

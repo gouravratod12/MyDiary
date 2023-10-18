@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.all
+    @product_bills = ProductBill.all
   end
 
   def new
