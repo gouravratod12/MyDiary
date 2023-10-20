@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
 
-     has_many  :bill_managers
+     has_many  :bills
 
 
      validates :customer_name, presence: true

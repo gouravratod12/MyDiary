@@ -1,0 +1,53 @@
+
+
+<div class="col-lg-12">
+<%= flash[:notice] %>
+<div class="card rounded-0 mt-5">
+  <div class="card-body ">
+    <h2 class="text-center">Listing Items</h2>
+  </div>
+</div>
+
+<%= link_to "Create New Item", new_item_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
+
+<table class="table table-bordered ">
+  <thead >
+    <tr>
+      <th>Item id</th>
+      <th>Item date</th>
+      <th>Item Name</th>
+      <th>Item Rate</th>
+      <th>Item Stock</th>
+      <th>Product Id</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+        <td><%= item.id%></td>
+        <td><%= item.product_date%></td>
+       <td><%= item.product.product_name if item.product%></td>
+       <td><%= item.product.product_rate if item.product%></td>
+       <td><%= item.stock %></td>
+
+        <td><%= item.product_id%></td>
+        <td>
+        <div class="dropdown">
+         <button class="btn btn-primary dropdown-toggle" type="button"
+         data-bs-toggle="dropdown" aria-expanded="false">
+            Actions
+         </button>
+         <ul class="dropdown-menu">
+          <li><%= link_to "Edit" , edit_item_path(item), class: "dropdown-item"%></li>
+          <li><%= link_to "View" , item_path(item), class: "dropdown-item"%></li>
+          <li><%= link_to "Delete", item_path(item), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this product?' } %></li>
+        </ul>
+        </div>
+
+      </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+</div>

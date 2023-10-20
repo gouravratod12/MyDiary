@@ -60,3 +60,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #adding for calender
 gem 'simple_calendar'
+
+
+#adding for additional block
+gem 'cocoon'
+
+#adding for additional features
+gem 'jquery-rails'

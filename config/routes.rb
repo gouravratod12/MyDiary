@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :customers
   resources :products
-  resources :bill_managers
-  resources :product_bills
+  resources :bills
+  resources :items
 
 end

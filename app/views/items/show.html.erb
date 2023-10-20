@@ -1,0 +1,63 @@
+<div class="col-lg-12">
+<div class="card rounded-0 mt-5">
+  <div class="card-body ">
+    <h2 class="text-center">Item Detail</h2>
+  </div>
+</div>
+
+      <div class="col-lg-4 mt-3">
+        <div class="form-group">
+         <p class="lead"><strong>Item Date : </strong><%= @item.product_date%>
+
+        </div>
+      </div>
+
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <p class="lead"><strong>Item Name  : </strong><%= @item.product.product_name%>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <p class="lead"><strong>Item Rate  : </strong><%= @item.product.product_rate%>
+
+        </div>
+      </div>
+    </div>
+
+
+      <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <p class="lead"><strong>Item Stock : </strong><%= @item.product_stock%>
+
+        </div>
+      </div>
+    </div>
+ <div class="row">
+      <div class="col-lg-4">
+        <div class="form-group">
+          <p class="lead"><strong>Item Unit : </strong><%= @item.product_unit%>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 mb-4">
+
+        <%= link_to "Back to Items", items_path, class: "btn btn-outline-primary btn-lg mt-3 mb-3 rounded-0" %>
+        <%= link_to "Edit Item", edit_item_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
