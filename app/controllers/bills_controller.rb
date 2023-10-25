@@ -1,3 +1,5 @@
+require 'prawn'
+
 class BillsController< ApplicationController
 
   before_action :set_bill, only: [:edit, :update , :show , :destroy]
@@ -8,7 +10,7 @@ class BillsController< ApplicationController
   end
 
   def new
-    debugger
+
     @bill  = Bill.new
     @bill.items.build
   end
@@ -39,7 +41,14 @@ class BillsController< ApplicationController
  end
 
   def show
-
+    @bill = Bill.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = render_to_string pdf: "#{@bill.id}", template: 'bills/show.html.erb', layout: 'pdf.html.erb'
+        send_data pdf, filename: "#{@bill.id}.pdf",type: 'application/pdf' , disposition: 'attachment'
+      end
+    end
   end
 
   def destroy
@@ -47,6 +56,11 @@ class BillsController< ApplicationController
       redirect_to bills_path, notice: 'Your bill has been deleted succesfully'
     end
   end
+
+  def show_items
+    @bill = Bill.find(params[:id])
+    @items = @bill.items
+   end
 
   private
 

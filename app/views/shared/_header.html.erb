@@ -1,37 +1,47 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-	  <%= image_tag  "cow.webp" , height: 70 %>
-    <a class="navbar-brand ml-3" href="#"><strong>MyDairy</strong></a>
+
+    <br>
+    <span style="padding-left: 20px;"> </span>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
+       <li class="nav-item">
+        <%= image_tag  "cow.webp" , height: 70   %><br>
+        <%= link_to "MyDairy", admins_path %>
+        <span style="padding-left: 55px;"> </span>
+        </li>
         <li class="nav-item">
         <%= image_tag  "images.png" , height: 70   %><br>
-        <%= link_to "Customers", customer_path([:id]) %>
+        <%= link_to "Customers", customers_path %>
+        <span style="padding-left: 50px;"> </span>
         </li>
         <li class="nav-item">
           <%= image_tag  "dairy.jpg" , height: 70 %><br>
 
-        <%= link_to "Products", product_path([:id]) %>
+        <%= link_to "Products", products_path %>
+         <span style="padding-left: 50px;"> </span>
 
         </li>
         <li class="nav-item">
           <%= image_tag  "Untitled.jpeg" , height: 70 %><br>
-          <%= link_to "Items", item_path([:id]) %>
+          <%= link_to "Items", items_path %>
+           <span style="padding-left: 50px;"> </span>
 
 
         </li>
          <li class="nav-item ">
         <%= image_tag  "seller.jpeg" , height: 70 %><br>
           <%= link_to "Sellers"%>
+           <span style="padding-left: 50px;"> </span>
 
-   </li>
+       </li>
         <li class="nav-item ">
           <%= image_tag  "bill.jpeg" , height: 70 %><br>
-
-        <%= link_to "Bills", bill_path([:id]) %>
+        <%= link_to "Bills", bills_path %>
+         <span style="padding-left: 50px;"> </span>
         </li>
       </ul>
     </div>

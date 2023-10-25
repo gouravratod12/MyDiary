@@ -48,6 +48,7 @@ class ItemsController < ApplicationController
    end
 
 
+
   private
 
   def item_params
@@ -55,7 +56,7 @@ class ItemsController < ApplicationController
   end
 
   def set_item
-    @item = Item.find(params[:id])
+    @item = Item.find(params[:item_id] || params[:id])
   rescue ActiveRecord::RecordNotFound => error
     redirect_to items_params_path, notice: error
   end

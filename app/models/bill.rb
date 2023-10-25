@@ -6,4 +6,6 @@ class Bill < ApplicationRecord
 
   validates :bill_date,:quantity,:amount, presence: true
 
+
+
 end
