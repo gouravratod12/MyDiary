@@ -8,11 +8,9 @@ class BillsController< ApplicationController
   end
 
   def new
+    debugger
     @bill  = Bill.new
     @bill.items.build
-
-
-
   end
 
   def create
@@ -53,7 +51,7 @@ class BillsController< ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit( :bill_date,:quantity,:amount,:customer_id,:product_stock_id)
+    params.require(:bill).permit( :bill_date,:quantity,:amount,:customer_id,:item_id)
   end
 
   def set_bill

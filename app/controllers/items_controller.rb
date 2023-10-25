@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
 
-  before_action :set_items, only: [:edit, :update , :show , :destroy]
+  before_action :set_item , only: [:edit, :update , :show , :destroy]
 
 
   def index
@@ -54,7 +54,7 @@ class ItemsController < ApplicationController
     params.require(:item).permit( :product_date ,:product_stock,:product_unit,:product_id,:product_unit)
   end
 
-  def set_items
+  def set_item
     @item = Item.find(params[:id])
   rescue ActiveRecord::RecordNotFound => error
     redirect_to items_params_path, notice: error

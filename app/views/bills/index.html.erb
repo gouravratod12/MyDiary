@@ -39,6 +39,7 @@
           <li><%= link_to "Edit" , edit_bill_path(bill), class: "dropdown-item"%></li>
           <li><%= link_to "View" , bill_path(bill), class: "dropdown-item"%></li>
           <li><%= link_to "Delete",bill_path(bill), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this product?' } %></li>
+          <li><%= link_to "Download", bill_path(bill),class: "dropdown-item"%>
         </ul>
        </div>
 

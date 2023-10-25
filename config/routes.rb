@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'product_bills/index'
+
 
   root "admins#index"
 
