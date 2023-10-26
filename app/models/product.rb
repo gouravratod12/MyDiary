@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
 
-  has_many :items , dependent: :destroy
-
-  validates :items, :product_rate, presence: true, uniqueness: true
+  has_many :items
+  has_many :bills
+  # validates :product_rate, presence: true, uniqueness: true
 
 end

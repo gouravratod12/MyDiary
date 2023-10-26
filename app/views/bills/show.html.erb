@@ -1,4 +1,4 @@
-require 'prawn'
+
 
 <div class="col-lg-12">
 <div class="card rounded-0 mt-5">
@@ -18,8 +18,7 @@ require 'prawn'
     <div class="row">
       <div class="col-lg-4">
         <div class="form-group">
-          <p class="lead"><strong>Customer Name  : </strong><%= @bill.customer.customer_name%>
-
+          <p class="lead"><strong>Customer Name  : </strong><%= @bill.customer.customer_name%></p>
         </div>
       </div>
     </div>
@@ -27,12 +26,8 @@ require 'prawn'
      <div class="row">
       <div class="col-lg-4">
        <div class="form-group">
-          <p class="lead"><strong>Product Name:</strong></p>
-          <ul>
-          <% @bill.items.each do |item| %>
-          <li><%= items.product.product_name %></li>
-          <% end %>
-          </ul>
+          <p class="lead"><strong>Product Name:</strong><%= @bill.product.product_name%></p>
+
        </div>
     </div>
 

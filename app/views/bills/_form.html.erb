@@ -4,11 +4,11 @@
            <div class="form-group">
                 <%= form.label :customer_id, class: 'mb-2' %>
                 <%= form.collection_select :customer_id, Customer.all, :id, :customer_name, { prompt: 'Select customer' }, class: 'form-select form-select-lg rounded-0' %>
-                <% if bill.errors.full_messages_for(:customer_id).present? %>
+           <!---     <% if bill.errors.full_messages_for(:customer_id).present? %>
                   <% bill.errors.full_messages_for(:customer_id).each do |message| %>
                     <p class="text-danger"><%= message %></p>
                   <% end %>
-                <% end %>
+                <% end %>-->
            </div>
      </div>
   </div>
@@ -18,9 +18,9 @@
         <div class="form-group mb-2">
            <%= form.label :bill_date, class: 'mb-2' %>
            <%= form.date_field :bill_date, class: 'form-control form-control-lg rounded-0' %>
-           <% @bill.errors.full_messages_for(:bill_date).each do|message| %>
+          <!---   <% @bill.errors.full_messages_for(:bill_date).each do|message| %>
            <p class="text-danger"><%=message%></p>
-          <%end%>
+          <%end%>-->
         </div>
       </div>
     </div>
@@ -31,11 +31,11 @@
            <div class="form-group">
                 <%= form.label :product, class: 'mb-2 mt-2' %>
                 <%= form.collection_select :id, Product.all, :id, :product_name, { prompt: 'Select product' }, class: 'form-select form-select-lg rounded-0' %>
-                <% if bill.errors.full_messages_for(:id).present? %>
+               <!---   <% if bill.errors.full_messages_for(:id).present? %>
                   <% bill.errors.full_messages_for(:id).each do |message| %>
                     <p class="text-danger"><%= message %></p>
                   <% end %>
-                <% end %>
+                <% end %>-->
            </div>
 
       </div>
@@ -44,9 +44,9 @@
         <div class="form-group">
            <%= form.label :quantity, class: 'mb-2 mt-2' %>
            <%= form.number_field :quantity, class: 'form-control form-control-lg rounded-0' %>
-           <% @bill.errors.full_messages_for(:quantity).each do|message| %>
+         <!---    <% @bill.errors.full_messages_for(:quantity).each do|message| %>
            <p class="text-danger"><%=message%></p>
-           <%end%>
+           <%end%>-->
         </div>
   </div>
 
@@ -55,9 +55,9 @@
         <div class="form-group">
            <%= form.label :amount, class: 'mb-2 mt-2' %>
            <%= form.number_field :amount, class: 'form-control form-control-lg rounded-0' %>
-           <% @bill.errors.full_messages_for(:amount).each do|message| %>
+           <!---  <% @bill.errors.full_messages_for(:amount).each do|message| %>
            <p class="text-danger"><%=message%></p>
-           <%end%>
+           <%end%>-->
         </div>
   </div>
 

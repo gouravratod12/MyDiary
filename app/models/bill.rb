@@ -1,10 +1,10 @@
 class Bill < ApplicationRecord
 
   belongs_to :customer
-  has_many  :items
+  belongs_to :product
+  has_many   :items
 
-
-  validates :bill_date,:quantity,:amount, presence: true
+  # validates :bill_date,:quantity,:amount, presence: true
 
 
 

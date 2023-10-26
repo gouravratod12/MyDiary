@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :product_name
       t.integer :product_rate
 
+
       t.timestamps
     end
   end

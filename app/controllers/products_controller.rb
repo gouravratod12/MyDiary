@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @items = Item.all
+    @bills = Bill.all
   end
 
   def new
@@ -13,8 +14,8 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product  = Product.new(product_params)
 
+    @product  = Product.new(product_params)
     if @product.save
       redirect_to products_path, notice: 'Product has been created successfully'
 
