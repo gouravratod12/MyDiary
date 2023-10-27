@@ -17,7 +17,6 @@ gem 'rails', '~> 5.0.7', '>= 5.0.7.1'
 gem 'sqlite3', '~> 1.3.6'
 
 # Use bootstrap for desinging
-gem 'bootstrap', '5.3.1'
 
 
 
@@ -76,3 +75,8 @@ gem 'jquery-rails'
 
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
+gem 'pagy', '~> 3.0.0'
+gem 'bootstrap'
+
+gem 'sassc-rails'

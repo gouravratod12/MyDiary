@@ -1,8 +1,10 @@
+require 'pagy'
+
 class Customer < ApplicationRecord
 
      has_many  :bills
 
-
+     include Pagy::Backend
    #  validates :customer_name, presence: true
    #  validates :customer_address, presence: true
   #   validates :customer_contact, presence: true , uniqueness: true , length: { is: 10},
