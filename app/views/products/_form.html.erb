@@ -27,8 +27,19 @@
           <%end%>
         </div>
       </div>
+       <div class="col-lg-4">
+        <div class="form-group">
+           <%= form.label :product_stock, class: 'mb-2' %>
+           <%= form.number_field :stock, class: 'form-control form-control-lg rounded-0' %>
+           <% @product.errors.full_messages_for(:stock).each do|message| %>
+           <p class="text-danger"><%=message%></p>
+          <%end%>
+        </div>
+      </div>
     </div>
     <br>
+
+
 <div class="col-lg-2">
         <div class="form-group ">
             <%= form.label :unit, class: 'mb-2' %>
@@ -36,6 +47,7 @@
 
         </div>
   </div>
+
 
     <div class="row">
       <div class="col-lg-12 mb-4">

@@ -6,13 +6,20 @@
   </div>
 </div>
 <%= link_to "Create New product", new_product_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
-
+<div class="row" >
+        <div class="col mb-3" >
+          <%= form_tag(products_path, method: :get) do %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search Product..." %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </div>
+      </div>
 <table class="table table-bordered ">
   <thead >
     <tr>
       <th>Product Id</th>
       <th>Product Name</th>
-      <th>Product Rate</th>
+      <th>Product Rate/Unit</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -23,7 +30,7 @@
 
         <td><%= product.product_name%></td>
 
-        <td><%= product.product_rate%>rs</td>
+        <td><%= product.product_rate%> rs</td>
 
         <td>
         <div class="dropdown">

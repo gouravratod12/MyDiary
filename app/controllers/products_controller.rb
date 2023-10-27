@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
     @products = Product.all
     @items = Item.all
     @bills = Bill.all
+
+    if params[:query].present?
+      @products = Product.where("product_name LIKE ?", "%#{params[:query]}%" )
+    else
+      @products = Product.all
+    end
   end
 
   def new
@@ -50,7 +56,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:product_name, :product_rate,:unit)
+    params.require(:product).permit(:product_name, :product_rate,:unit,:stock)
   end
 
   def set_product

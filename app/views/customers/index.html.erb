@@ -7,7 +7,14 @@
   </div>
 </div>
 <%= link_to "Create New Customer", new_customer_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
-
+<div class="row" >
+        <div class="col mb-3" >
+          <%= form_tag(customers_path, method: :get) do %>
+            <%= text_field_tag :query, params[:query], placeholder: "Search Customer..." %>
+            <%= submit_tag "Search" %>
+          <% end %>
+        </div>
+      </div>
 <table class="table table-bordered ">
   <thead >
     <tr>

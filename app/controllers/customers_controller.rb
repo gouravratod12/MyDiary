@@ -4,6 +4,11 @@ class CustomersController < ApplicationController
 
   def index
     @customers = Customer.all
+    if params[:query].present?
+      @customers = Customer.where("customer_name LIKE ?", "%#{params[:query]}%" )
+    else
+      @customers = Customer.all
+    end
   end
 
   def new

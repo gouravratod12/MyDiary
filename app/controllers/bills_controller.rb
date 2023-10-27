@@ -7,6 +7,12 @@ class BillsController< ApplicationController
   def index
     @bills = Bill.all
     @items = Item.all
+
+    if params[:query].present?
+      @bills = Bill.joins(:customer).where("customers.customer_name LIKE ?", "%#{params[:query]}%")
+    else
+      @bills = Bill.all
+    end
   end
 
   def new

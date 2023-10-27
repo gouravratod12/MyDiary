@@ -73,3 +73,6 @@ gem 'cocoon'
 
 #adding for additional features
 gem 'jquery-rails'
+
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

@@ -7,6 +7,11 @@ class ItemsController < ApplicationController
     @items = Item.all
     @product = Product.all
     @bill    = Bill.all
+    if params[:query].present?
+      @items = Item.joins(:product).where("products.product_name LIKE ?", "%#{params[:query]}%")
+    else
+      @items = Item.all
+    end
   end
 
   def new
