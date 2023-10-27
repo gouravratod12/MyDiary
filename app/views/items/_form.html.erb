@@ -1,9 +1,20 @@
 
 <%= form_for item do |form| %>
   <div class="row">
+  <div class="col-lg-2  ">
+           <div class="form-group ">
+                <%= form.label :bill_no, class: 'mb-2' %>
+                <%= form.collection_select :bill_id, Bill.all, :id, :id, { prompt: 'Select Bill' }, class: 'form-select form-select-lg rounded-0 mb-5' %>
+                <% if item.errors.full_messages_for(:bill_id).present? %>
+                  <% item.errors.full_messages_for(:bill_id).each do |message| %>
+                    <p class="text-danger"><%= message %></p>
+                  <% end %>
+                <% end %>
+           </div>
+     </div>
      <div class="col-lg-3 mb-3">
            <div class="form-group">
-           <%= form.label :product_date, class: 'mb-2' %>
+           <%= form.label :item_date, class: 'mb-2' %>
            <%= form.date_field :product_date, class: 'form-control form-control-lg rounded-0' %>
            <% @item.errors.full_messages_for(:product_date).each do|message| %>
            <p class="text-danger"><%=message%></p>
@@ -14,7 +25,7 @@
   <div class="row">
      <div class="col-lg-3">
            <div class="form-group">
-                <%= form.label :product_id, class: 'mb-2' %>
+                <%= form.label :item_id, class: 'mb-2' %>
                 <%= form.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, class: 'form-select form-select-lg rounded-0' %>
                 <% if item.errors.full_messages_for(:product_id).present? %>
                   <% item.errors.full_messages_for(:product_id).each do |message| %>
@@ -26,7 +37,7 @@
 
      <div class="col-lg-2">
            <div class="form-group">
-                <%= form.label :product_rate, class: 'mb-2' %>
+                <%= form.label :item_rate, class: 'mb-2' %>
                 <%= form.collection_select :product_id, Product.all, :id, :product_rate, { prompt: 'Select rate' }, class: 'form-select form-select-lg rounded-0' %>
                 <% if item.errors.full_messages_for(:product_id).present? %>
                   <% item.errors.full_messages_for(:product_id).each do |message| %>
@@ -35,31 +46,25 @@
                 <% end %>
            </div>
      </div>
+<div class="col-lg-3">
+           <div class="form-group">
+                <%= form.label :item_weight, class: 'mb-2' %>
+                <%= form.collection_select :bill_id, Bill.all, :id, :weight, { prompt: 'Select weight' }, class: 'form-select form-select-lg rounded-0' %>
 
-      <div class="col-lg-2">
-        <div class="form-group mb-2">
-           <%= form.label :product_stock, class: 'mb-2' %>
-           <%= form.number_field :product_stock,  class: 'form-control form-control-lg rounded-0' %>
-           <% @item.errors.full_messages_for(:product_stock).each do|message| %>
-           <p class="text-danger"><%=message%></p>
-          <%end%>
-        </div>
-      </div>
+           </div>
+     </div>
 
 
+       <div class="col-lg-2">
+           <div class="form-group">
+                <%= form.label :item_unit, class: 'mb-2' %>
+                <%= form.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, class: 'form-select form-select-lg rounded-0' %>
 
-   <div class="col-lg-2">
-        <div class="form-group ">
-            <%= form.label :product_unit, class: 'mb-2' %>
-             <%= form.select :product_unit, options_for_select(['ltr', 'gm', 'kg','per']), class: 'form-control form-control-lg rounded-0' %>
+           </div>
+     </div>
 
-        </div>
   </div>
 
-
-
- </div>
-  </div>
 
   <br>
 

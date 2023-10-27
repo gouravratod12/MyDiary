@@ -16,7 +16,7 @@
       <th>Item id</th>
       <th>Item date</th>
       <th>Item Name</th>
-      <th>Item Rate</th>
+      <th>Item Rate/unit</th>
       <th>Item Stock</th>
       <th>Product Id</th>
       <th>Actions</th>
@@ -28,7 +28,7 @@
         <td><%= item.id%></td>
         <td><%= item.product_date%></td>
        <td><%= item.product.product_name if item.product%></td>
-       <td><%= item.product.product_rate if item.product%></td>
+       <td><%= item.product.product_rate if item.product%> rs</td>
        <td><%= item.stock %></td>
 
         <td><%= item.product_id%></td>

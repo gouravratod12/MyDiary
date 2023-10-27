@@ -29,8 +29,8 @@
   <div class="row">
     <div class="col-lg-3">
            <div class="form-group">
-                <%= form.label :product, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :id, Product.all, :id, :product_name, { prompt: 'Select product' }, class: 'form-select form-select-lg rounded-0' %>
+                <%= form.label :product_id, class: 'mb-2 mt-2' %>
+                <%= form.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, class: 'form-select form-select-lg rounded-0' %>
                <!---   <% if bill.errors.full_messages_for(:id).present? %>
                   <% bill.errors.full_messages_for(:id).each do |message| %>
                     <p class="text-danger"><%= message %></p>
@@ -42,13 +42,21 @@
 
    <div class="col-lg-3">
         <div class="form-group">
-           <%= form.label :quantity, class: 'mb-2 mt-2' %>
-           <%= form.number_field :quantity, class: 'form-control form-control-lg rounded-0' %>
+           <%= form.label :weight, class: 'mb-2 mt-2' %>
+           <%= form.number_field :weight, class: 'form-control form-control-lg rounded-0' %>
          <!---    <% @bill.errors.full_messages_for(:quantity).each do|message| %>
            <p class="text-danger"><%=message%></p>
            <%end%>-->
         </div>
   </div>
+
+  <div class="col-lg-4">
+           <div class="form-group">
+                <%= form.label :unit, class: 'mb-2' %>
+                <%= form.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, class: 'form-select form-select-lg rounded-0' %>
+
+           </div>
+     </div>
 
 
     <div class="col-lg-3">
@@ -62,6 +70,8 @@
   </div>
 
   </div>
+
+
 
 
 

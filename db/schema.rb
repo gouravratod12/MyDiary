@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20231019115407) do
+ActiveRecord::Schema.define(version: 20231027060252) do
 
   create_table "bills", force: :cascade do |t|
     t.date     "bill_date"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20231019115407) do
     t.integer  "product_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "quantity"
+    t.integer  "weight"
     t.integer  "amount"
     t.index ["customer_id"], name: "index_bills_on_customer_id"
     t.index ["product_id"], name: "index_bills_on_product_id"
@@ -37,10 +37,8 @@ ActiveRecord::Schema.define(version: 20231019115407) do
     t.date     "product_date"
     t.integer  "product_id"
     t.integer  "bill_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "product_stock"
-    t.string   "product_unit"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["bill_id"], name: "index_items_on_bill_id"
     t.index ["product_id"], name: "index_items_on_product_id"
   end
@@ -50,6 +48,7 @@ ActiveRecord::Schema.define(version: 20231019115407) do
     t.integer  "product_rate"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "unit"
   end
 
 end

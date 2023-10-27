@@ -17,13 +17,13 @@ class BillsController< ApplicationController
   def create
     @bill = Bill.new(bill_params)
 
+
     if @bill.save
       redirect_to bills_path, notice: 'Your bill has been created successfully'
 
     else
       render :new
     end
-
   end
 
   def edit
@@ -64,7 +64,7 @@ class BillsController< ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit( :bill_date,:quantity,:amount,:customer_id,:item_id,:product_id)
+    params.require(:bill).permit( :bill_date,:weight,:amount,:customer_id,:product_id,:id)
   end
 
   def set_bill

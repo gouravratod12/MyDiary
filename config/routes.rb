@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 
 
+  get 'sellers/index'
+
   root "admins#index"
 
   resources :admins
