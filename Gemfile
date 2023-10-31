@@ -76,7 +76,7 @@ gem 'jquery-rails'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 
-gem 'pagy', '~> 3.0.0'
+gem 'pagy'
 gem 'bootstrap'
 
 gem 'sassc-rails'

@@ -1,15 +1,17 @@
 class CustomersController < ApplicationController
 
   before_action :set_customer, only: [:edit, :update , :show , :destroy]
+  include Pagy::Backend
 
   def index
-
+    @pagy, @customers = pagy(Customer.all,customers: 10)
     @customers = Customer.all
     if params[:query].present?
       @customers = Customer.where("customer_name LIKE ?", "%#{params[:query]}%" )
     else
       @customers = Customer.all
     end
+
   end
 
   def new

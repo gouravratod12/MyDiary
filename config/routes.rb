@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
 
-  get 'sellers/index'
 
   root "admins#index"
 
@@ -11,6 +10,7 @@ Rails.application.routes.draw do
   resources :products
   resources :bills
   resources :items
+  resources :sellers
 
   resources :bills do
     member do

@@ -22,57 +22,8 @@
         </div>
       </div>
 
-  <div class="row">
-     <div class="col-lg-2">
-           <div class="form-group">
-                <%= form.label :item_id, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, class: 'form-select form-select-lg rounded-0' %>
-                <% if item.errors.full_messages_for(:product_id).present? %>
-                  <% item.errors.full_messages_for(:product_id).each do |message| %>
-                    <p class="text-danger"><%= message %></p>
-                  <% end %>
-                <% end %>
-           </div>
-     </div>
 
-     <div class="col-lg-2">
-           <div class="form-group">
-                <%= form.label :item_rate, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :product_id, Product.all, :id, :product_rate, { prompt: 'Select rate' }, class: 'form-select form-select-lg rounded-0' %>
-                <% if item.errors.full_messages_for(:product_id).present? %>
-                  <% item.errors.full_messages_for(:product_id).each do |message| %>
-                    <p class="text-danger"><%= message %></p>
-                  <% end %>
-                <% end %>
-           </div>
-     </div>
-<div class="col-lg-3">
-           <div class="form-group">
-                <%= form.label :item_weight, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :bill_id, Bill.all, :id, :weight, { prompt: 'Select weight' }, class: 'form-select form-select-lg rounded-0' %>
-
-           </div>
-     </div>
-
-
-       <div class="col-lg-2">
-           <div class="form-group">
-                <%= form.label :item_unit, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, class: 'form-select form-select-lg rounded-0' %>
-
-           </div>
-     </div>
-
-
-       <div class="col-lg-2">
-           <div class="form-group">
-                <%= form.label :item_amount, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :bill_id, Bill.all, :id, :amount, { prompt: 'Select Amount' }, class: 'form-select form-select-lg rounded-0 mb-3' %>
-
-           </div>
-     </div>
-  </div>
-
+   <%= render 'items/item_form',item: @item %>
 <br>
 
 

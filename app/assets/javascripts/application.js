@@ -18,3 +18,8 @@
 //= require bootstrap
 //= require cocoon
 //= require jquery
+
+
+$(document).on(‘turbolinks:load’, function() {
+  $(‘.nested-fields’).cocoon();
+  })

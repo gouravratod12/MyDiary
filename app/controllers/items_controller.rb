@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @product = Product.all
     @bill    = Bill.all
     if params[:query].present?
-      @items = Item.joins(:product).where("products.product_name LIKE ?", "%#{params[:query]}%")
+      @items = Item.joins(:bill).where("bill_id = ?", params[:query])
     else
       @items = Item.all
     end
@@ -60,7 +60,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit( :product_date ,:product_id,:unit,:bill_id)
+    params.require(:item).permit( :product_date ,:product_id,:unit,:bill_id,:item_id)
   end
 
   def set_item

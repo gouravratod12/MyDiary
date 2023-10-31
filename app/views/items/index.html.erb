@@ -12,7 +12,7 @@
 <div class="row" >
         <div class="col mb-3" >
           <%= form_tag(items_path, method: :get) do %>
-            <%= text_field_tag :query, params[:query], placeholder: "Search Item..." %>
+            <%= number_field_tag :query, params[:query], placeholder: "Search Bill no..." %>
             <%= submit_tag "Search" %>
           <% end %>
         </div>
@@ -22,10 +22,8 @@
     <tr>
       <th>Item id</th>
       <th>Item date</th>
-      <th>Item Name</th>
-      <th>Item Rate/unit</th>
-
-      <th>Product Id</th>
+      <th>Bill id</th>
+      <th>Product id</th>
       <th>Actions</th>
     </tr>
   </thead>
@@ -34,8 +32,7 @@
     <tr>
         <td><%= item.id%></td>
         <td><%= item.product_date%></td>
-       <td><%= item.product.product_name if item.product%></td>
-       <td><%= item.product.product_rate if item.product%> rs</td>
+        <td><%= item.bill_id %></td>
         <td><%= item.product_id%></td>
         <td>
         <div class="dropdown">
@@ -55,4 +52,6 @@
     <%end%>
   </tbody>
 </table>
+
+
 </div>
