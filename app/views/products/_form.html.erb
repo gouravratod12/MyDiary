@@ -43,7 +43,7 @@
 <div class="col-lg-2">
         <div class="form-group ">
             <%= form.label :unit, class: 'mb-2' %>
-             <%= form.select :unit,options_for_select(['ltr', 'gm', 'kg','per']), class: 'form-control form-control-lg rounded-0' %>
+            <%= form.select :unit, options_for_select(['ltr', 'gm', 'kg', 'per'], @product.unit), { include_blank: 'Select Unit' }, class: 'form-control form-control-lg rounded-0' %>
 
         </div>
   </div>

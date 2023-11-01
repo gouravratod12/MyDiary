@@ -38,7 +38,9 @@
       <div class="row">
       <div class="col-lg-4">
         <div class="form-group">
-          <p class="lead"><strong>Weight: </strong><%= @bill.weight_unit%>
+         <% @bill.items.each do |item| %>
+          <p class="lead"><strong>Weight: </strong><%= item.item_weight %></p>
+           <% end %>
         </div>
       </div>
     </div>
@@ -46,8 +48,9 @@
  <div class="row">
       <div class="col-lg-4">
         <div class="form-group">
-          <p class="lead"><strong>Amount : </strong><%= @bill.amount%> rs
-
+        <% @bill.items.each do |item| %>
+          <p class="lead"><strong>Amount : </strong><%=item.amount%> rs</p>
+         <% end %>
         </div>
       </div>
     </div>

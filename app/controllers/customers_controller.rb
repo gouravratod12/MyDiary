@@ -4,12 +4,11 @@ class CustomersController < ApplicationController
   include Pagy::Backend
 
   def index
-    @pagy, @customers = pagy(Customer.all,customers: 10)
-    @customers = Customer.all
+    @pagy, @customers = pagy(Customer.all)
     if params[:query].present?
       @customers = Customer.where("customer_name LIKE ?", "%#{params[:query]}%" )
     else
-      @customers = Customer.all
+      @customers = Customer.all.order(:customer_name)
     end
 
   end

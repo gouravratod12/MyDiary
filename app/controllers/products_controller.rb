@@ -4,14 +4,13 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update , :show , :destroy]
 
   def index
-    @products = Product.all
     @items = Item.all
     @bills = Bill.all
 
     if params[:query].present?
       @products = Product.where("product_name LIKE ?", "%#{params[:query]}%" )
     else
-      @products = Product.all
+      @products = Product.all.order(:product_name)
     end
   end
 

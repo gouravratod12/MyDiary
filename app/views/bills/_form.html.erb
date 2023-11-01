@@ -40,19 +40,19 @@
 
       </div>
 
-   <div class="col-lg-3">
+   <div class="col-lg-2">
         <div class="form-group">
            <%= form.label :weight, class: 'mb-2 mt-2' %>
-           <%= form.number_field :weight, class: 'form-control form-control-lg rounded-0' %>
+           <%= form.number_field :id, class: 'form-control form-control-lg rounded-0' %>
          <!---    <% @bill.errors.full_messages_for(:quantity).each do|message| %>
            <p class="text-danger"><%=message%></p>
            <%end%>-->
         </div>
   </div>
 
-  <div class="col-lg-4">
+  <div class="col-lg-2">
            <div class="form-group">
-                <%= form.label :unit, class: 'mb-2' %>
+                <%= form.label :unit, class: 'mb-2 mt-2' %>
                 <%= form.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, class: 'form-select form-select-lg rounded-0' %>
 
            </div>
@@ -62,7 +62,7 @@
     <div class="col-lg-3">
         <div class="form-group">
            <%= form.label :amount, class: 'mb-2 mt-2' %>
-           <%= form.number_field :amount, class: 'form-control form-control-lg rounded-0' %>
+           <%= form.number_field :id, class: 'form-control form-control-lg rounded-0' %>
            <!---  <% @bill.errors.full_messages_for(:amount).each do|message| %>
            <p class="text-danger"><%=message%></p>
            <%end%>-->

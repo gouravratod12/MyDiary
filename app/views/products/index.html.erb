@@ -8,9 +8,10 @@
 <%= link_to "Create New product", new_product_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
 <div class="row" >
         <div class="col mb-3" >
-          <%= form_tag(products_path, method: :get) do %>
-            <%= text_field_tag :query, params[:query], placeholder: "Search Product..." %>
-            <%= submit_tag "Search" %>
+          <%= form_tag(products_path, method: :get,class: 'form-inline') do %>
+            <%= text_field_tag :query, params[:query],class: 'form-control',style: 'width: 300px;', placeholder: "Search Product..." %>
+            <%= submit_tag "Search", class: 'btn btn-success mt-3 mb-3'%>
+            <%= link_to "Reset", products_path, class: 'btn btn-outline-secondary mt-3 mb-3 ' %>
           <% end %>
         </div>
       </div>

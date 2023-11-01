@@ -11,7 +11,7 @@ class BillsController< ApplicationController
     if params[:query].present?
       @bills = Bill.joins(:customer).where("customers.customer_name LIKE ?", "%#{params[:query]}%")
     else
-      @bills = Bill.all
+      @bills = Bill.joins(:customer).order('customers.customer_name ASC')
     end
   end
 
@@ -70,7 +70,7 @@ class BillsController< ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit( :bill_date,:weight,:amount,:customer_id,:product_id,:id)
+    params.require(:bill).permit( :bill_date,:weight,:amount,:customer_id,:product_id,:id,items_attributes: [:id, :weight, :amount, :bill_id, :product_id, :_destroy])
   end
 
   def set_bill

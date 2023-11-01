@@ -18,8 +18,6 @@ ActiveRecord::Schema.define(version: 20231030111926) do
     t.integer  "product_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "weight"
-    t.integer  "amount"
     t.index ["customer_id"], name: "index_bills_on_customer_id"
     t.index ["product_id"], name: "index_bills_on_product_id"
   end
@@ -34,14 +32,13 @@ ActiveRecord::Schema.define(version: 20231030111926) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.date     "product_date"
     t.integer  "product_id"
     t.integer  "bill_id"
-    t.integer  "item_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "weight"
+    t.integer  "amount"
     t.index ["bill_id"], name: "index_items_on_bill_id"
-    t.index ["item_id"], name: "index_items_on_item_id"
     t.index ["product_id"], name: "index_items_on_product_id"
   end
 
