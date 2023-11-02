@@ -17,11 +17,14 @@ class BillsController< ApplicationController
 
   def new
     @bill  = Bill.new
+    @products = Product.all
     @bill.items.build
+    @unique_units = Product.distinct.pluck(:unit)
   end
 
   def create
     @bill = Bill.new(bill_params)
+
 
 
     if @bill.save
@@ -33,7 +36,7 @@ class BillsController< ApplicationController
   end
 
   def edit
-
+    @unique_units = Product.distinct.pluck(:unit)
   end
 
   def update
@@ -70,7 +73,7 @@ class BillsController< ApplicationController
   private
 
   def bill_params
-    params.require(:bill).permit( :bill_date,:weight,:amount,:customer_id,:product_id,:id,items_attributes: [:id, :weight, :amount, :bill_id, :product_id, :_destroy])
+    params.require(:bill).permit( :id, :bill_date,:customer_id,:product_id,:id,items_attributes: [:id, :weight, :amount, :bill_id, :product_id, :_destroy])
   end
 
   def set_bill

@@ -15,11 +15,9 @@ ActiveRecord::Schema.define(version: 20231030111926) do
   create_table "bills", force: :cascade do |t|
     t.date     "bill_date"
     t.integer  "customer_id", null: false
-    t.integer  "product_id",  null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["customer_id"], name: "index_bills_on_customer_id"
-    t.index ["product_id"], name: "index_bills_on_product_id"
   end
 
   create_table "customers", force: :cascade do |t|

@@ -16,6 +16,7 @@ class ItemsController < ApplicationController
 
   def new
     @item  = Item.new
+    @unique_units = Product.distinct.pluck(:unit)
   end
 
   def create

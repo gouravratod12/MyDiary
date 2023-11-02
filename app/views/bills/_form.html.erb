@@ -21,16 +21,17 @@
           <!---   <% @bill.errors.full_messages_for(:bill_date).each do|message| %>
            <p class="text-danger"><%=message%></p>
           <%end%>-->
+
         </div>
       </div>
     </div>
 
-
+ <%= form.fields_for :items do |item| %>
   <div class="row">
     <div class="col-lg-3">
            <div class="form-group">
-                <%= form.label :product_id, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, class: 'form-select form-select-lg rounded-0' %>
+                <%= item.label :product_id, class: 'mb-2 mt-2' %>
+                <%= item.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, { class: 'form-select form-select-lg rounded-0'} %>
                <!---   <% if bill.errors.full_messages_for(:id).present? %>
                   <% bill.errors.full_messages_for(:id).each do |message| %>
                     <p class="text-danger"><%= message %></p>
@@ -40,43 +41,36 @@
 
       </div>
 
-   <div class="col-lg-2">
-        <div class="form-group">
-           <%= form.label :weight, class: 'mb-2 mt-2' %>
-           <%= form.number_field :id, class: 'form-control form-control-lg rounded-0' %>
-         <!---    <% @bill.errors.full_messages_for(:quantity).each do|message| %>
-           <p class="text-danger"><%=message%></p>
-           <%end%>-->
-        </div>
-  </div>
-
   <div class="col-lg-2">
            <div class="form-group">
-                <%= form.label :unit, class: 'mb-2 mt-2' %>
-                <%= form.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, class: 'form-select form-select-lg rounded-0' %>
-
+                <%= item.label :unit, class: 'mb-2 mt-2' %>
+                <%= item.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, class: 'form-select form-select-lg rounded-0' %>
            </div>
      </div>
 
+  <div class="col-lg-2">
+    <div class="form-group">
+      <%= item.label :weight, class: 'mb-2 mt-2' %>
+      <%= item.number_field :weight, class: 'form-control form-control-lg rounded-0' %>
+      <!--- <% @bill.errors.full_messages_for(:quantity).each do |message| %>
+        <p class="text-danger"><%= message %></p>
+      <% end %>-->
+    </div>
+  </div>
 
     <div class="col-lg-3">
         <div class="form-group">
-           <%= form.label :amount, class: 'mb-2 mt-2' %>
-           <%= form.number_field :id, class: 'form-control form-control-lg rounded-0' %>
+           <%= item.label :amount, class: 'mb-2 mt-2' %>
+           <%= item.number_field :amount, class: 'form-control form-control-lg rounded-0' %>
            <!---  <% @bill.errors.full_messages_for(:amount).each do|message| %>
            <p class="text-danger"><%=message%></p>
            <%end%>-->
         </div>
   </div>
-
+<% end %>
   </div>
-
-
-
-
-
 <br>
-
+  <%= submit_tag 'Add Product +', class: 'btn btn-danger mb-3 rounded-0' %>
 
 
  <div class="row">
@@ -86,9 +80,6 @@
 
       </div>
     </div>
-
-
-
 </div>
 
 <% end %>

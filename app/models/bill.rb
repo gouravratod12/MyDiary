@@ -1,7 +1,6 @@
 class Bill < ApplicationRecord
 
   belongs_to :customer
-  belongs_to :product
   has_many   :items
 
   accepts_nested_attributes_for :items , allow_destroy: true

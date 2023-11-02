@@ -2,7 +2,7 @@ class Item < ApplicationRecord
 
 
   belongs_to :product
-  belongs_to  :bill
+  belongs_to  :bill, optional: true
 
 
   # validates :product_date,:product_stock, presence: true
