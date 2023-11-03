@@ -6,7 +6,7 @@ class ProductsController < ApplicationController
   def index
     @items = Item.all
     @bills = Bill.all
-
+    
     if params[:query].present?
       @products = Product.where("product_name LIKE ?", "%#{params[:query]}%" )
     else
