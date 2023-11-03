@@ -7,7 +7,6 @@ class BillsController< ApplicationController
   def index
     @bills = Bill.all
     @items = Item.all
-
     if params[:query].present?
       @bills = Bill.joins(:customer).where("customers.customer_name LIKE ?", "%#{params[:query]}%")
     else
@@ -17,15 +16,13 @@ class BillsController< ApplicationController
 
   def new
     @bill  = Bill.new
+    @item  = Item.new
     @products = Product.all
     @bill.items.build
-    @unique_units = Product.distinct.pluck(:unit)
   end
 
   def create
     @bill = Bill.new(bill_params)
-
-
 
     if @bill.save
       redirect_to bills_path, notice: 'Your bill has been created successfully'
@@ -50,6 +47,7 @@ class BillsController< ApplicationController
 
   def show
     @bill = Bill.find(params[:id])
+
     respond_to do |format|
       format.html
       format.pdf do

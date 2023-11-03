@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all
+    @item = Item.all
     @product = Product.all
     @bill    = Bill.all
     if params[:query].present?
@@ -16,7 +16,6 @@ class ItemsController < ApplicationController
 
   def new
     @item  = Item.new
-    @unique_units = Product.distinct.pluck(:unit)
   end
 
   def create
