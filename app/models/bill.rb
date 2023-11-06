@@ -9,4 +9,8 @@ class Bill < ApplicationRecord
     "#{item.unit}"
   end
 
+  def total_price
+    items.sum(&:amount)
+  end
+
 end

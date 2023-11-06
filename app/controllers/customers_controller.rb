@@ -5,11 +5,7 @@ class CustomersController < ApplicationController
 
   def index
     @pagy, @customers = pagy(Customer.all)
-    if params[:query].present?
-      @customers = Customer.where("customer_name LIKE ?", "%#{params[:query]}%" )
-    else
-      @customers = Customer.all.order(:customer_name)
-    end
+    @pagy, @customers = pagy(search_customers)
 
   end
 
@@ -54,6 +50,26 @@ class CustomersController < ApplicationController
   end
 
   private
+  def search_customers
+    query = params[:query]
+    search_option = params[:search_by]
+
+    conditions = {
+      'Customer Name' => :customer_name,
+      'Customer Address' => :customer_address,
+      'Date of Joining' => :customer_dateofjoining,
+      'Contacts' => :customer_contact
+    }
+
+    search_column = conditions[search_option]
+
+    if query.present? && search_column
+      Customer.where("#{search_column} LIKE ?", "%#{query}%").order(:customer_name)
+    else
+      Customer.all.order(:customer_name)
+    end
+  end
+
 
   def customer_params
     params.require(:customer).permit(:customer_name, :customer_address,:customer_dateofjoining, :customer_contact)

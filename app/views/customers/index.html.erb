@@ -10,18 +10,22 @@
 
   <div class="row">
     <div class="col mb-3">
-      <%= form_tag(customers_path, method: :get, class: 'form-inline') do %>
-        <%= text_field_tag :query, params[:query], class: 'form-control', style: 'width: 300px;', placeholder: "Search Customer..." %>
-        <%= submit_tag "Search", class: 'btn btn-success mt-3 mb-3' %>
-        <%= link_to "Reset", customers_path, class: 'btn btn-outline-secondary mt-3 mb-3' %>
-      <% end %>
+     <%= form_tag(customers_path, method: :get, class: 'form-inline') do %>
+     <div>
+         <%= text_field_tag :query, params[:query], class: 'form-control', style: 'width: 311px;', placeholder: "Search.." %>
+         <%= select_tag :search_by, options_for_select(['Select Option','Customer Name', 'Customer Address', 'Date of Joining', 'Contacts'], params[:search_by]) %>
+         <%= submit_tag "Search", class: 'btn btn-success mt-3 mb-3' %>
+         <%= link_to "Reset", customers_path, class: 'btn btn-outline-secondary mt-3 mb-3' %>
     </div>
+   <% end %>
   </div>
+ </div>
+
 
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>Name</th>
+        <th>Name </th>
         <th>Address</th>
         <th>Date of Joining</th>
         <th>Contacts</th>

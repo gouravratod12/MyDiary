@@ -1,52 +1,44 @@
 <div class="col-lg-12">
-<div class="card rounded-0 mt-5">
-  <div class="card-body ">
-    <h2 class="text-center">Customer Detail</h2>
-  </div>
+  <div class="card rounded-0 mt-5" >
 
-
-      <div class="col-lg-4">
-        <div class="form-group">
-         <p class="lead"><strong>Customer Name:</strong><%= @customer.customer_name%>
-
-        </div>
+    <div class="card-body">
+      <h2 class="text-center">Customer Detail</h2>
+    </div>
+    <div class="col-lg-4" style="margin-left: 20px;">
+       <div class="form-group">
+        <p class="lead"><strong>Customer Name:</strong> <%= @customer.customer_name %></p>
       </div>
+    </div>
 
-     <br>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-4" style="margin-left: 20px;">
         <div class="form-group">
-          <p class="lead"><strong>Customer Address:</strong><%= @customer.customer_address%>
-
+          <p class="lead"><strong>Customer Address:</strong> <%= @customer.customer_address %></p>
         </div>
       </div>
     </div>
-      <br>
-    <div class="row">
-      <div class="col-lg-3">
-        <div class="form-group">
-          <p class="lead"><strong>Customer Date of Join: </strong><%= @customer.customer_dateofjoining%>
 
+    <div class="row">
+      <div class="col-lg-3" style="margin-left: 20px;">
+        <div class="form-group">
+          <p class="lead"><strong>Customer Date of Join:</strong> <%= @customer.customer_dateofjoining %></p>
         </div>
       </div>
     </div>
-     <br>
+
     <div class="row">
-      <div class="col-lg-3">
+      <div class="col-lg-3" style="margin-left: 20px;">
         <div class="form-group">
-          <p class="lead"><strong>Customer Contact:</strong><%= @customer.customer_contact%>
+          <p class="lead"><strong>Customer Contact:</strong> <%= @customer.customer_contact %></p>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-12 mb-4">
 
+    <div class="row">
+      <div class="col-lg-12 mb-4" style="margin-left: 20px;">
         <%= link_to "Back to Customer", customers_path, class: "btn btn-outline-primary btn-lg mt-3 mb-3 rounded-0" %>
-        <%= link_to "Edit Customer", edit_customer_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
-
+        <%= link_to "Edit Customer", edit_customer_path(@customer), class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
       </div>
     </div>
   </div>
-
-</div>
 </div>

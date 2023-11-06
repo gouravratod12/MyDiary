@@ -18,4 +18,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :products do
+    member do
+      get 'fetch_info',  to: 'products#fetch_info'
+    end
+  end
+
+
+
+
+
 end

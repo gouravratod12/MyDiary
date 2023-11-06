@@ -21,7 +21,7 @@
     </div>
 
    <%= form.fields_for :items do |item| %>
-    <%= render 'item_fields', :f => item %>
+    <%= render 'item_fields', :f => item  %>
    <% end %>
        <div>
         <%= link_to_add_association 'add product', form, :items %>

@@ -7,6 +7,7 @@ class BillsController< ApplicationController
   def index
     @bills = Bill.all
     @items = Item.all
+    @bills = search_bills
     if params[:query].present?
       @bills = Bill.joins(:customer).where("customers.customer_name LIKE ?", "%#{params[:query]}%")
     else
@@ -79,4 +80,27 @@ class BillsController< ApplicationController
   rescue ActiveRecord::RecordNotFound => error
     redirect_to bills_path, notice: error
   end
+
+
+
+  def search_bills
+    query = params[:query]
+    search_option = params[:search_by]
+
+    if query.present?
+      case search_option
+      when 'Customer Name'
+        Bill.joins(:customer).where("customers.customer_name LIKE ?", "%#{query}%")
+      when 'Amount'
+        query = 400
+          bills = Bill.where(amount: query)
+
+      else
+        Bill.joins(:customer).order('customers.customer_name ASC')
+      end
+    else
+      Bill.joins(:customer).order('customers.customer_name ASC')
+    end
+  end
+
 end

@@ -1,26 +1,30 @@
    <div class = "nested-fields">
   <div class="row">
-    <div class="col-lg-3">
-           <div class="form-group">
-                <%= f.label :product_id, class: 'mb-2 mt-2' %>
-                <%= f.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, { class: 'form-select form-select-lg rounded-0'} %>
+   <div class="col-lg-3">
+  <div class="form-group">
+    <%= f.label :product_id, class: 'mb-2 mt-2' %>
+    <%= f.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, { class: 'form-select form-select-lg rounded-0', id: 'product-select' } %>
+  </div>
+</div>
 
-           </div>
+<div class="col-lg-2">
+  <div class="form-group">
+    <%= f.label :rate, class: 'mb-2 mt-2' %>
+    <%= f.number_field :product_id, class: 'form-control form-control-lg rounded-0', id: 'rate_field', readonly: true %>
+  </div>
+</div>
 
-      </div>
+<div class="col-lg-2">
+  <div class="form-group">
+    <%= f.label :unit, class: 'mb-2 mt-2' %>
+    <%= f.text_field :product_id, class: 'form-control form-control-lg rounded-0', id: 'unit_field', readonly: true %>
+  </div>
+</div>
 
-  <div class="col-lg-2">
-           <div class="form-group">
-                <%= f.label :unit, class: 'mb-2 mt-2' %>
-                <%= f.collection_select :product_id, Product.all, :id, :unit, { prompt: 'Select unit' }, { class: 'form-select form-select-lg rounded-0'} %>
-
-           </div>
- </div>
   <div class="col-lg-2">
     <div class="form-group">
       <%= f.label :weight, class: 'mb-2 mt-2' %>
       <%= f.number_field :weight, class: 'form-control form-control-lg rounded-0' %>
-
     </div>
   </div>
 

@@ -6,12 +6,7 @@ class ProductsController < ApplicationController
   def index
     @items = Item.all
     @bills = Bill.all
-    
-    if params[:query].present?
-      @products = Product.where("product_name LIKE ?", "%#{params[:query]}%" )
-    else
-      @products = Product.all.order(:product_name)
-    end
+    @pagy,@products = pagy(search_products)
   end
 
   def new
@@ -53,7 +48,37 @@ class ProductsController < ApplicationController
     end
   end
 
+  def fetch_info
+    product_name = params[:product_name]
+    product = Product.find_by(product_name: product_name)
+
+    if product
+      render json: { rate: product.product_rate, unit: product.unit }
+    else
+      render json: { error: 'Product not found' }, status: :not_found
+    end
+  end
+
   private
+  def search_products
+    query = params[:query]
+    search_option = params[:search_by]
+
+    conditions = {
+      'Product Name' => :product_name,
+      'Product Rate' => :product_rate,
+      'Product Stock' => :stock,
+
+    }
+
+    search_column = conditions[search_option]
+
+    if query.present? && search_column
+      Product.where("#{search_column} LIKE ?", "%#{query}%").order(:product_name)
+    else
+      Product.all.order(:product_name)
+    end
+  end
 
   def product_params
     params.require(:product).permit(:product_name, :product_rate,:unit,:stock)

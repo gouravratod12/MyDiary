@@ -11,7 +11,8 @@
 <div class="row" >
         <div class="col mb-3" >
          <%= form_tag(bills_path, method: :get,class: 'form-inline') do %>
-            <%= text_field_tag :query, params[:query],class: 'form-control',style: 'width: 300px;', placeholder: "Search Customer..." %>
+            <%= text_field_tag :query, params[:query], class: 'form-control', style: 'width: 311px;', placeholder: "Search.." %>
+           <%= select_tag :search_by, options_for_select(['Select Option','Customer Name', 'Amount'], params[:search_by]) %>
             <%= submit_tag "Search", class: 'btn btn-success mt-3 mb-3'%>
             <%= link_to "Reset", bills_path, class: 'btn btn-outline-secondary mt-3 mb-3 ' %>
           <% end %>
@@ -35,9 +36,7 @@
         <td><%= bill.bill_date%></td>
         <td><%= bill.customer.customer_name%></td>
        <td>
-       <% bill.items.each do |item| %>
-        <%= item.amount %> rs
-        <% end %>
+        <%=bill.total_price %> rs
       </td>
         <td>
         <div class="dropdown">

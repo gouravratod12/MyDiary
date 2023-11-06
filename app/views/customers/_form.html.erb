@@ -45,7 +45,7 @@
       <div class="col-lg-3">
         <div class="form-group">
            <%= form.label :customer_contact, class: 'mb-2' %>
-           <%= form.text_field :customer_contact, class: 'form-control form-control-lg rounded-0 mb-5' %>
+           <%= form.text_field :customer_contact, class: 'form-control form-control-lg rounded-0 mb-5',type: 'number' %>
            <% @customer.errors.full_messages_for(:customer_contact).each do|message| %>
            <p class="text-danger"><%=message%></p>
            <%end%>
