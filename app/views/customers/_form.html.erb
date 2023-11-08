@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-lg-3">
         <div class="form-group">
-           <%= form.label :customer_dateofjoining, class: 'mb-2' %>
+           <%= form.label :Date, class: 'mb-2' %>
            <%= form.date_field :customer_dateofjoining, class: 'form-control form-control-lg rounded-0' %>
            <% @customer.errors.full_messages_for(:customer_dateofjoining).each do|message| %>
            <p class="text-danger"><%=message%></p>

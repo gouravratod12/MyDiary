@@ -31,6 +31,7 @@
         <tr>
           <th>Product Name</th>
           <th>Weight</th>
+          <th>Rate</th>
           <th>Amount</th>
 
         </tr>
@@ -40,10 +41,12 @@
           <tr>
             <td><%= item.product.product_name %></td>
             <td><%= item.item_weight %></td>
-            <td><%= item.amount %> rs</td>
+            <td><%= item.product.product_rate%> rs</td>
+            <td><%= item.total %> rs</td>
           </tr>
         <% end %>
         <tr>
+           <td></td>
            <td></td>
            <td>Total:</td>
            <td><%= @bill.total_price %> rs</td>

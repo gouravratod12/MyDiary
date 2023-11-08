@@ -20,10 +20,9 @@ Rails.application.routes.draw do
 
   resources :products do
     member do
-      get 'fetch_info',  to: 'products#fetch_info'
+      get 'details', to: 'products#details'
     end
   end
-
 
 
 

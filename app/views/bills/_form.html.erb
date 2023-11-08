@@ -18,24 +18,27 @@
 
         </div>
       </div>
+
     </div>
 
-   <%= form.fields_for :items do |item| %>
-    <%= render 'item_fields', :f => item  %>
-   <% end %>
-       <div>
-        <%= link_to_add_association 'add product', form, :items %>
-      </div>
+  <%= form.fields_for :items do |item| %>
+
+    <%= render 'item_fields', f: item  %>
+
+  <% end %>
+  <div>
+    <%= link_to_add_association 'add product', form, :items %>
   </div>
 
 
- <div class="row">
-      <div class="col-lg-12 mb-4">
-        <%= form.submit class: 'btn btn-primary rounded-0 btn-lg'%>
-        <%= link_to "Back to Bill ", bills_path, class: "btn btn-outline-primary btn-lg mt-3 mb-3 rounded-0" %>
 
+  <div class="row">
+        <div class="col-lg-12 mb-4">
+          <%= form.submit class: 'btn btn-primary rounded-0 btn-lg'%>
+          <%= link_to "Back to Bill ", bills_path, class: "btn btn-outline-primary btn-lg mt-3 mb-3 rounded-0" %>
+
+        </div>
       </div>
-    </div>
-</div>
+  </div>
 
 <% end %>

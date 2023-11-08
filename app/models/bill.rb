@@ -13,4 +13,5 @@ class Bill < ApplicationRecord
     items.sum(&:amount)
   end
 
+
 end

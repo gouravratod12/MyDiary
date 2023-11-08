@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
 
-
+  attribute :product_id, :integer
   belongs_to :product, optional: true
   belongs_to  :bill, optional: true
 
@@ -10,6 +10,11 @@ class Item < ApplicationRecord
 
   def item_weight
       "#{weight} #{product.unit}".strip
+  end
+
+
+  def total
+     product.product_rate * weight
   end
 
 end

@@ -48,16 +48,15 @@ class ProductsController < ApplicationController
     end
   end
 
-  def fetch_info
-    product_name = params[:product_name]
-    product = Product.find_by(product_name: product_name)
+  def details
+    @product = Product.find(params[:id])
+     render json: {
+      rate: @product.product_rate,
+      unit: @product.unit,
 
-    if product
-      render json: { rate: product.product_rate, unit: product.unit }
-    else
-      render json: { error: 'Product not found' }, status: :not_found
-    end
+    }
   end
+
 
   private
   def search_products

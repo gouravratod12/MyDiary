@@ -35,6 +35,7 @@ class BillsController< ApplicationController
 
   def edit
     @unique_units = Product.distinct.pluck(:unit)
+
   end
 
   def update
@@ -69,14 +70,19 @@ class BillsController< ApplicationController
     @items = @bill.items
    end
 
+
+
+
   private
 
   def bill_params
-    params.require(:bill).permit( :id, :bill_date,:customer_id,:product_id,:id,items_attributes: [:id, :weight, :amount, :bill_id, :product_id, :_destroy])
+    params.require(:bill).permit( :id, :bill_date,:customer_id,:product_id,:id,items_attributes: [:id, :weight, :amount, :bill_id, :product_id,:product_rate,:unit,:total, :_destroy])
   end
 
   def set_bill
     @bill = Bill.find(params[:id])
+    @item = @bill.items.first
+
   rescue ActiveRecord::RecordNotFound => error
     redirect_to bills_path, notice: error
   end
@@ -87,20 +93,23 @@ class BillsController< ApplicationController
     query = params[:query]
     search_option = params[:search_by]
 
+    conditions = {
+      'Customer Name' => :customer_name,
+    }
+
+    search_column = conditions[search_option]
     if query.present?
       case search_option
+
       when 'Customer Name'
         Bill.joins(:customer).where("customers.customer_name LIKE ?", "%#{query}%")
-      when 'Amount'
-        query = 400
-          bills = Bill.where(amount: query)
 
-      else
         Bill.joins(:customer).order('customers.customer_name ASC')
       end
     else
       Bill.joins(:customer).order('customers.customer_name ASC')
     end
   end
+
 
 end

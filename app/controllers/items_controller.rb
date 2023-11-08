@@ -57,6 +57,13 @@ class ItemsController < ApplicationController
 
    end
 
+  def rate
+     product.product_rate
+  end
+
+  def unit
+    product.unit
+  end
 
 
   private
