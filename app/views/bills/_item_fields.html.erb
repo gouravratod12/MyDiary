@@ -1,41 +1,26 @@
-<div class="nested-fields">
-  <div class="row">
-    <div class="col-lg-3">
-      <div class="form-group">
-        <div class="field">
-         <%= f.label :product_id, class: 'mb-2 mt-2' %>
-         <%= f.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Select product' }, { class: 'form-select form-select-lg rounded-0', id: 'product_select' } %>
-        </div>
-      </div>
-    </div>
-<div class="col-lg-2">
-  <div class="form-group">
-    <%= f.label :rate, class: 'mb-2 mt-2' %>
-    <input id="product_rate" type="text" class="form-control form-control-lg rounded-0" >
-  </div>
-</div>
+<div class = "nested-fields">
+  <%= f.label :product_id, 'Select Product' %>
+  <%= f.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Please Select product' }, { id: 'product_select' } %>
 
-<div class="col-lg-2">
-  <div class="form-group">
-    <%= f.label :unit, class: 'mb-2 mt-2' %>
-    <input id="unit" type="text" class="form-control form-control-lg rounded-0" >
-  </div>
-</div>
-
-
-<div class="col-lg-2">
-      <div class="form-group">
-        <%= f.label :weight, class: 'mb-2 mt-2' %>
-        <%= f.number_field :weight, class: 'form-control form-control-lg rounded-0' %>
-      </div>
-    </div>
-
-    <div class="col-lg-3">
-      <div class="form-group">
-        <%= f.label :amount, class: 'mb-2 mt-2' %>
-        <%= f.number_field :amount, class: 'form-control form-control-lg rounded-0' %>
-      </div>
-    </div>
-        <%= link_to_remove_association "Remove Product", f %>
+  <div class="product_attributes" style="display: none;">
+    <table class = "table table-striped">
+      <tr>
+        <th width="10%">Item</th>
+        <th width="10%">Rate</th>
+        <th width="10%">Unit</th>
+        <th width="10%">Quantity</th>
+        <th width="10%">Amount Paid</th>
+      </tr>
+      <tr>
+        <td><span class="product_name"></span></td>
+        <td><span class="product_rate"></span></td>
+        <td><span class="product_unit"></span></td>
+        <td><%= f.text_field :weight, placeholder: "Quantity",size:"10" %></td>
+        <td><%= f.text_field :amount, placeholder:"Amount Paid",size:"10" %></td>
+      </tr>
+    </table>
    </div>
+
+   <%= link_to_remove_association 'Remove Item', f , class: "link-body-emphasis" %>
+  </div>
 </div>

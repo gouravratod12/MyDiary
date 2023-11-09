@@ -47,17 +47,17 @@ class BillsController< ApplicationController
    end
  end
 
-  def show
-    @bill = Bill.find(params[:id])
+ def show
+  @bill = Bill.find(params[:id])
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        pdf = render_to_string pdf: "#{@bill.id}", template: 'bills/show.html.erb', layout: 'pdf.html.erb'
-        send_data pdf, filename: "#{@bill.id}.pdf",type: 'application/pdf' , disposition: 'attachment'
-      end
+  respond_to do |format|
+    format.html
+    format.pdf do
+      pdf = render_to_string pdf: "#{@bill.id}", template: 'bills/show.html.erb', layout: 'pdf.html.erb'
+      send_data pdf, filename: "#{@bill.id}.pdf",type: 'application/pdf' , disposition: 'inline'
     end
   end
+end
 
   def destroy
     if @bill.destroy

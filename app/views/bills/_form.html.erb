@@ -18,14 +18,35 @@
 
         </div>
       </div>
-
-    </div>
+  </div>
+  <br>
 
   <%= form.fields_for :items do |item| %>
+    <div class = "fields">
+      <%= item.label :product_id, 'Select Product' %>
+      <%= item.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Please Select product' }, { id: 'product_select' } %>
 
-    <%= render 'item_fields', f: item  %>
+      <div id="product_attributes" style="display: none;">
+        <table class = "table table-bordered">
+          <tr>
+            <th width="10%">Item</th>
+            <th width="10%">Rate</th>
+            <th width="10%">Unit</th>
+            <th width="10%">Weight</th>
+            <th width="10%">Amount</th>
+          </tr>
+         <tr>
+        <td><span id="product_name"></span></td>
+        <td><span id="product_rate"></span></td>
+        <td><span id="product_unit"></span></td>
+        <td><%= item.text_field :weight, placeholder: "weight",size:"10" %></td>
+        <td><%= item.text_field :amount, placeholder:"Amount Paid",size:"10" %></td>
+      </tr>
+        </table>
+      </div>
+    </div>
+   <% end %>
 
-  <% end %>
   <div>
     <%= link_to_add_association 'add product', form, :items %>
   </div>

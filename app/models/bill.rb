@@ -10,7 +10,7 @@ class Bill < ApplicationRecord
   end
 
   def total_price
-    items.sum(&:amount)
+    "#{items.sum(:amount)}"
   end
 
 

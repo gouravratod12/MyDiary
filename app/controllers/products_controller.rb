@@ -53,6 +53,7 @@ class ProductsController < ApplicationController
      render json: {
       rate: @product.product_rate,
       unit: @product.unit,
+      name: @product.product_name
 
     }
   end

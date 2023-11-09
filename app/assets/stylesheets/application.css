@@ -25,3 +25,9 @@
 .flash-error {
   color: red;
 }
+
+.alert-info {
+  background-color: #d9edf7;
+  border-color: #bcd5e1;
+  color: #31708f;
+}
