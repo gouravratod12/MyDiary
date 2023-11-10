@@ -13,8 +13,5 @@ class Item < ApplicationRecord
   end
 
 
-  def total
-     product.product_rate * weight
-  end
 
 end

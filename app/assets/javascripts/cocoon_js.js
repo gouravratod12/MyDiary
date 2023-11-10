@@ -23,6 +23,7 @@ function handleProductSelection(select) {
         select.closest('.nested-fields').find('.product_rate').text(data.rate);
         select.closest('.nested-fields').find('.product_unit').text(data.unit);
 
+
       }
     });
   } else {

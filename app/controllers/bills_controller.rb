@@ -72,7 +72,6 @@ end
 
 
 
-
   private
 
   def bill_params

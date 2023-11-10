@@ -1,4 +1,6 @@
+
 <div class = "nested-fields">
+
   <%= f.label :product_id, 'Select Product' %>
   <%= f.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Please Select product' }, { id: 'product_select' } %>
 
@@ -8,19 +10,20 @@
         <th width="10%">Item</th>
         <th width="10%">Rate</th>
         <th width="10%">Unit</th>
-        <th width="10%">Quantity</th>
-        <th width="10%">Amount Paid</th>
+        <th width="10%">Weight</th>
+        <th width="10%">Amount</th>
       </tr>
       <tr>
         <td><span class="product_name"></span></td>
         <td><span class="product_rate"></span></td>
         <td><span class="product_unit"></span></td>
-        <td><%= f.text_field :weight, placeholder: "Quantity",size:"10" %></td>
-        <td><%= f.text_field :amount, placeholder:"Amount Paid",size:"10" %></td>
+        <td><%= f.text_field :weight, placeholder: "Weight",size:"10" %></td>
+        <td><%= f.text_field :amount, placeholder:"Amount", size:"10",  readonly: true %></td>
+
       </tr>
     </table>
+       <%= link_to_remove_association 'Remove Item', f , class: "link-body-emphasis" %>
    </div>
 
-   <%= link_to_remove_association 'Remove Item', f , class: "link-body-emphasis" %>
   </div>
 </div>

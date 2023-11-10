@@ -9,9 +9,13 @@ class Bill < ApplicationRecord
     "#{item.unit}"
   end
 
-  def total_price
+  def grand_total
     "#{items.sum(:amount)}"
   end
 
+
+  def calculate_total(item)
+     item.weight * item.product&.product_rate
+  end
 
 end

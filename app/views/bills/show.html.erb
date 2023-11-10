@@ -42,14 +42,15 @@
             <td><%= item.product.product_name %></td>
             <td><%= item.item_weight %></td>
             <td><%= item.product.product_rate%> rs</td>
-            <td><%= item.total %> rs</td>
+            <td><%= @bill.calculate_total(item) %></td>
+
           </tr>
         <% end %>
         <tr>
            <td></td>
            <td></td>
            <td>Total:</td>
-           <td><%= @bill.total_price %> rs</td>
+           <td><%= @bill.grand_total %> rs</td>
         <tr>
       </tbody>
     </table>

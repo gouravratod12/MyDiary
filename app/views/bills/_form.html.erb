@@ -1,3 +1,4 @@
+
 <%= form_for bill do |form| %>
   <div class="row">
      <div class="col-lg-4">
@@ -39,10 +40,11 @@
         <td><span id="product_name"></span></td>
         <td><span id="product_rate"></span></td>
         <td><span id="product_unit"></span></td>
-        <td><%= item.text_field :weight, placeholder: "weight",size:"10" %></td>
-        <td><%= item.text_field :amount, placeholder:"Amount Paid",size:"10" %></td>
+        <td id="product_weight"><%= item.text_field :weight, placeholder:"Weight",size:"10" %></td>
+        <td id="product_total"></td>
+
       </tr>
-        </table>
+   </table>
       </div>
     </div>
    <% end %>
