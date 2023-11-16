@@ -59,6 +59,13 @@ class ProductsController < ApplicationController
   end
 
 
+
+
+  def find_product_by_id(product_id)
+    Product.find_by(id: product_id)
+  end
+
+
   private
   def search_products
     query = params[:query]

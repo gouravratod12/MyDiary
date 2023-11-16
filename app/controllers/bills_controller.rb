@@ -20,6 +20,18 @@ class BillsController< ApplicationController
     @item  = Item.new
     @products = Product.all
     @bill.items.build
+    product_id = params[:product_id]
+
+    if product_id.present?
+       @product = Product.find(product_id)
+    else
+      @product = Product.new
+    end
+
+     respond_to do |format|
+       format.html
+       format.json { render json: @bill }
+    end
   end
 
   def create
@@ -75,7 +87,7 @@ end
   private
 
   def bill_params
-    params.require(:bill).permit( :id, :bill_date,:customer_id,:product_id,:id,items_attributes: [:id, :weight, :amount, :bill_id, :product_id,:product_rate,:unit,:total, :_destroy])
+    params.require(:bill).permit( :id, :bill_date,:customer_id,:product_id,:id,items_attributes: [:id, :weight,:amount, :bill_id, :product_id,:product_rate,:unit,:total, :_destroy])
   end
 
   def set_bill

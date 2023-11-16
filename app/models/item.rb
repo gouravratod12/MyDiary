@@ -7,7 +7,6 @@ class Item < ApplicationRecord
 
   # validates :product_date,:product_stock, presence: true
 
-
   def item_weight
       "#{weight} #{product.unit}".strip
   end

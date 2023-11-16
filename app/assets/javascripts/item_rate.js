@@ -22,3 +22,22 @@ $(document).on('turbolinks:load', function() {
     }
   });
 });
+
+
+function calculateAmount(button) {
+  var productRate = parseFloat($('#product_rate').text());
+  var weight = parseFloat(document.getElementById('weight').value);
+  var amount =  productRate * weight;
+   console.log(productRate);
+   console.log(weight);
+   var resultElement = document.getElementById('result');
+   resultElement.textContent = `${amount}`;
+   console.log(amount);
+
+   // Update the amount attribute of the item const itemId = button.dataset.itemId;
+   var itemElement = document.getElementById(`item-${itemId}`);
+   var itemAmountInput = itemElement.querySelector('input[name="item[amount]"]');
+   itemAmountInput.value = amount;
+
+
+  }

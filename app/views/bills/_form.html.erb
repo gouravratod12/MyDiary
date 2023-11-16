@@ -1,3 +1,11 @@
+<!-- Set data-item-id on an element -->
+
+  <!-- Add the JavaScript code -->
+ <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<!-- Your script -->
+
 
 <%= form_for bill do |form| %>
   <div class="row">
@@ -22,13 +30,13 @@
   </div>
   <br>
 
-  <%= form.fields_for :items do |item| %>
-    <div class = "fields">
+    <%= form.fields_for :items do |item| %>
+    <div class="fields">
       <%= item.label :product_id, 'Select Product' %>
       <%= item.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Please Select product' }, { id: 'product_select' } %>
 
       <div id="product_attributes" style="display: none;">
-        <table class = "table table-bordered">
+        <table class="table table-bordered">
           <tr>
             <th width="10%">Item</th>
             <th width="10%">Rate</th>
@@ -36,18 +44,25 @@
             <th width="10%">Weight</th>
             <th width="10%">Amount</th>
           </tr>
-         <tr>
-        <td><span id="product_name"></span></td>
-        <td><span id="product_rate"></span></td>
-        <td><span id="product_unit"></span></td>
-        <td id="product_weight"><%= item.text_field :weight, placeholder:"Weight",size:"10" %></td>
-        <td id="product_total"></td>
+          <tr>
 
-      </tr>
-   </table>
+            <td><span id="product_name"></span></td>
+            <td><span id="product_rate" ></span></td>
+            <td><span id="product_unit"></span></td>
+            <td>
+              <%= item.text_field :weight, id: 'weight', class: 'form-control' %>
+              <button type="button" onclick="calculateAmount(this)">Calculate</button>
+
+            </td>
+             <td><span id="result"></span></td>
+          </tr>
+        </table>
       </div>
     </div>
-   <% end %>
+  <% end %>
+
+
+
 
   <div>
     <%= link_to_add_association 'add product', form, :items %>
