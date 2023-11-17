@@ -41,3 +41,9 @@ function calculateAmount(button) {
 
 
   }
+
+
+  const spanElement = document.getElementById('result');
+const inputField = document.querySelector('input[name="item[amount]"]');
+
+inputField.id = spanElement.id;

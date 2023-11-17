@@ -19,10 +19,9 @@ function handleProductSelection(select) {
       dataType: 'json',
       success: function(data) {
         fieldsContainer.show();
-        select.closest('.nested-fields').find('.product_name').text(data.name);
-        select.closest('.nested-fields').find('.product_rate').text(data.rate);
-        select.closest('.nested-fields').find('.product_unit').text(data.unit);
-
+        select.closest('.nested-fields').find('#product_name').text(data.name);
+        select.closest('.nested-fields').find('#product_rate').text(data.rate);
+        select.closest('.nested-fields').find('#product_unit').text(data.unit);
 
       }
     });
