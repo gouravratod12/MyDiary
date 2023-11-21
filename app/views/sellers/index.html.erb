@@ -1,0 +1,62 @@
+<div class="col-lg-12">
+  <% flash[:notice] %>
+
+  <div class="card rounded-0 mt-5">
+    <div class="card-body">
+      <h2 class="text-center">Listing Sellers</h2>
+    </div>
+  </div>
+
+  <%= link_to "Create New Seller", new_seller_path, class: "btn btn-primary btn-lg mt-3 mb-3 rounded-0" %>
+
+  <div class="row">
+    <div class="col mb-3">
+     <%= form_tag(sellers_path, method: :get, class: 'form-inline') do %>
+     <div>
+         <%= text_field_tag :query, params[:query], class: 'form-control', style: 'width: 311px;', placeholder: "Search.." %>
+         <%= select_tag :search_by, options_for_select(['Select Option','Seller Name', 'Seller Address', 'Date of Joining', 'Contacts'], params[:search_by]) %>
+         <%= submit_tag "Search", class: 'btn btn-success mt-3 mb-3' %>
+         <%= link_to "Reset", sellers_path, class: 'btn btn-outline-secondary mt-3 mb-3' %>
+    </div>
+   <% end %>
+  </div>
+ </div>
+
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><button class="sort-button" data-attribute="seller_name">Name <span class="sort-indicator"></span></button></th>
+      <th><button class="sort-button" data-attribute="seller_address">Address <span class="sort-indicator"></span></button></th>
+      <th>Date of Joining </th>
+      <th>Contacts</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @sellers.each do |seller| %>
+      <tr>
+        <td><%= seller.seller_name %></td>
+        <td><%= seller.seller_address %></td>
+        <td><%= seller.seller_date %></td>
+        <td><%= seller.seller_contact %></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
+              Actions
+            </button>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Edit", edit_seller_path(seller), class: "dropdown-item" %></li>
+              <li><%= link_to "View", seller_path(seller), class: "dropdown-item" %></li>
+              <li>
+                <%= link_to "Delete", seller_path(seller), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this seller?' } %>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+</div>

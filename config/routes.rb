@@ -24,6 +24,9 @@ Rails.application.routes.draw do
     end
   end
 
+  Rails.application.routes.draw do
+    get '/login' => 'sessions#new'
+  end
 
 
 end

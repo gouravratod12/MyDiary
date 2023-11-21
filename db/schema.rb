@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20231030111926) do
     t.datetime "updated_at", null: false
     t.integer  "weight"
     t.integer  "amount"
+    t.date     "item_date"
     t.index ["bill_id"], name: "index_items_on_bill_id"
     t.index ["product_id"], name: "index_items_on_product_id"
   end

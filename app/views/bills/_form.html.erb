@@ -32,11 +32,12 @@
 
     <%= form.fields_for :items do |item| %>
     <div class="fields">
-      <%= item.label :product_id, 'Select Product' %>
+      <%= item.label :product_id, 'Select Product', style: 'margin-bottom: 10px;' %>
       <%= item.collection_select :product_id, Product.all, :id, :product_name, { prompt: 'Please Select product' }, { id: 'product_select' } %>
       <div id="product_attributes" style="display: none;">
         <table class="table table-bordered">
           <tr>
+            <th width="10%">Date</th>
             <th width="10%">Item</th>
             <th width="10%">Rate</th>
             <th width="10%">Unit</th>
@@ -44,6 +45,9 @@
             <th width="10%">Amount</th>
           </tr>
           <tr>
+            <td>
+             <%= item.date_field :item_date %>
+            </td>
             <td><span id="product_name"></span></td>
             <td><span id="product_rate" ></span></td>
             <td><span id="product_unit"></span></td>
@@ -53,12 +57,12 @@
               <button type="button" onclick="calculateAmount(this)">Calculate</button>
             </td>
             <td>
-              <%= item.text_field :amount, id: "amount_#{item.object_id}" %>
               <span id="result"></span>
            </td>
           </tr>
         </table>
       </div>
+       <% item.hidden_field :_destroy %>
     </div>
 
   <% end %>

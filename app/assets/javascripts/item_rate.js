@@ -33,12 +33,9 @@ function calculateAmount(button) {
    var resultElement = document.getElementById('result');
    resultElement.textContent = `${amount}`;
    console.log(amount);
-
    // Update the amount attribute of the item const itemId = button.dataset.itemId;
-   var itemElement = document.getElementById(`item-${itemId}`);
-   var itemAmountInput = itemElement.querySelector('input[name="item[amount]"]');
-   itemAmountInput.value = amount;
 
+   document.getElementById('result').textContent = amount;
 
   }
 

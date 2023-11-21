@@ -46,17 +46,23 @@ class BillsController< ApplicationController
 
   def edit
     @unique_units = Product.distinct.pluck(:unit)
+    @products = Product.all
+    @customers = Customer.all
+    @items = Item.all
 
   end
 
   def update
+    @bill = Bill.find(params[:id])
+    @bill.items.destroy_all
 
     if @bill.update(bill_params)
-      redirect_to  edit_bill_path, notice: 'Your bill  has been updated succesfully'
+      redirect_to bills_path, notice: 'Bill has been updated successfully'
     else
       render :edit
-   end
- end
+    end
+  end
+
 
  def show
   @bill = Bill.find(params[:id])
@@ -93,6 +99,7 @@ end
       items_attributes: [
         :weight,
         :amount,
+        :item_date,
         :bill_id,
         :product_id,
         :product_rate,

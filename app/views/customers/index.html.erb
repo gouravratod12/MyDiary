@@ -23,40 +23,41 @@
  </div>
 
 
-  <table class="table table-bordered">
-    <thead>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th><button class="sort-button" data-attribute="customer_name">Name <span class="sort-indicator"></span></button></th>
+      <th><button class="sort-button" data-attribute="customer_address">Address <span class="sort-indicator"></span></button></th>
+      <th>Date of Joining </th>
+      <th>Contacts</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @customers.each do |customer| %>
       <tr>
-        <th ><button id="sort-button" class="sort-button">Name <span class="sort-indicator"></span></button></th>
-        <th>Address</th>
-        <th>Date of Joining</th>
-        <th>Contacts</th>
-        <th>Actions</th>
+        <td><%= customer.customer_name %></td>
+        <td><%= customer.customer_address %></td>
+        <td><%= customer.customer_dateofjoining %></td>
+        <td><%= customer.customer_contact %></td>
+        <td>
+          <div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
+              Actions
+            </button>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Edit", edit_customer_path(customer), class: "dropdown-item" %></li>
+              <li><%= link_to "View", customer_path(customer), class: "dropdown-item" %></li>
+              <li>
+                <%= link_to "Delete", customer_path(customer), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this customer?' } %>
+              </li>
+            </ul>
+          </div>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      <% @customers.each do |customer| %>
-        <tr>
-          <td><%= customer.customer_name %></td>
-          <td><%= customer.customer_address %></td>
-          <td><%= customer.customer_dateofjoining %></td>
-          <td><%= customer.customer_contact %></td>
-          <td>
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" data-turbolinks="false">
-                Actions
-              </button>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Edit", edit_customer_path(customer), class: "dropdown-item" %></li>
-                <li><%= link_to "View", customer_path(customer), class: "dropdown-item" %></li>
-                <li>
-                  <%= link_to "Delete", customer_path(customer), class: "dropdown-item", method: :delete, data: { confirm: 'Are you sure to delete this customer?' } %>
-                </li>
-              </ul>
-            </div>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
+
 </div>
 <%= raw pagy_nav(@pagy) %>

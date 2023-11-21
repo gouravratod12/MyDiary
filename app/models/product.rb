@@ -16,4 +16,8 @@ class Product < ApplicationRecord
   def product_id=(new_id)
     write_attribute(:product_id, new_id)
   end
+
+  before_save do
+    items.destroy_all
+  end
 end

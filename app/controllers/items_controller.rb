@@ -31,7 +31,8 @@ class ItemsController < ApplicationController
     end
   end
   def edit
-
+    rescue ActiveRecord::RecordNotUnique
+    redirect_to items_path, alert: 'Item with the same product and bill already exists'
   end
 
   def update
