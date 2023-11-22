@@ -52,7 +52,7 @@
             <td><span id="product_rate" ></span></td>
             <td><span id="product_unit"></span></td>
             <td>
-              <%= item.text_field :weight, id: 'weight', class: 'form-control' , default_value: 1 %>
+              <%= item.text_field :weight, id: 'weight', class: 'form-control' , value: 1 %>
               <br>
               <button type="button" onclick="calculateAmount(this)">Calculate</button>
             </td>
